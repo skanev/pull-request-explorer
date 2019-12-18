@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PullRequestExplorer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eC8-tM-eTY">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RepositoryCell" rowHeight="64" id="DNw-uR-rK0" customClass="RepositoryCell" customModule="PullRequestExplorer" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="64"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DNw-uR-rK0" id="MRK-hh-6eH">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dfm-Sq-RPP">
+                                                    <rect key="frame" x="20" y="20" width="42" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QqB-Rt-Scb">
+                                                    <rect key="frame" x="348" y="20" width="46" height="24"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <connections>
+                                                        <action selector="onStar" destination="DNw-uR-rK0" eventType="touchUpInside" id="BAI-q9-cwk"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="Dfm-Sq-RPP" secondAttribute="bottom" constant="20" symbolic="YES" id="6OO-qt-noC"/>
+                                                <constraint firstItem="QqB-Rt-Scb" firstAttribute="top" secondItem="MRK-hh-6eH" secondAttribute="top" constant="20" symbolic="YES" id="CNf-9b-xFl"/>
+                                                <constraint firstAttribute="trailing" secondItem="QqB-Rt-Scb" secondAttribute="trailing" constant="20" symbolic="YES" id="Cx6-zk-wga"/>
+                                                <constraint firstItem="Dfm-Sq-RPP" firstAttribute="leading" secondItem="MRK-hh-6eH" secondAttribute="leading" constant="20" symbolic="YES" id="HNp-IS-s3H"/>
+                                                <constraint firstItem="Dfm-Sq-RPP" firstAttribute="top" secondItem="MRK-hh-6eH" secondAttribute="top" constant="20" symbolic="YES" id="he1-zW-O7E"/>
+                                                <constraint firstItem="QqB-Rt-Scb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Dfm-Sq-RPP" secondAttribute="trailing" constant="8" symbolic="YES" id="qku-ia-cMQ"/>
+                                                <constraint firstAttribute="bottom" secondItem="QqB-Rt-Scb" secondAttribute="bottom" constant="20" symbolic="YES" id="yPI-Ao-8uX"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="name" destination="Dfm-Sq-RPP" id="ZK7-y0-IPr"/>
+                                            <outlet property="star" destination="QqB-Rt-Scb" id="que-pQ-Zyv"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="PkQ-wV-cch"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="eC8-tM-eTY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="DVW-Jq-I0I"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eC8-tM-eTY" secondAttribute="trailing" id="d1Q-CX-p0q"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="eC8-tM-eTY" secondAttribute="bottom" id="t62-E5-1kf"/>
+                            <constraint firstItem="eC8-tM-eTY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="wos-nb-pjc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="eC8-tM-eTY" id="X2w-83-cOT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
+        </scene>
+    </scenes>
+</document>

@@ -1,0 +1,34 @@
+query MyRepositories {
+  viewer {
+    login
+    repositories(first: 50) {
+      nodes {
+        id
+        nameWithOwner
+        viewerHasStarred
+      }
+    }
+  }
+}
+
+mutation AddStar($id: ID!) {
+  addStar(input: {starrableId: $id}) {
+    starrable {
+      id
+      ... on Repository {
+        viewerHasStarred
+      }
+    }
+  }
+}
+
+mutation RemoveStar($id: ID!) {
+  removeStar(input: {starrableId: $id}) {
+    starrable {
+      id
+      ... on Repository {
+        viewerHasStarred
+      }
+    }
+  }
+}
